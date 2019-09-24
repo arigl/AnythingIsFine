@@ -7,6 +7,7 @@ import android.os.PersistableBundle
 import android.view.View
 import com.example.anythingisfine.util.rotate90
 import kotlinx.android.synthetic.main.activity_main.*
+import android.content.Intent
 
 class MainActivity : AppCompatActivity() {
     private var counter: Long =  0
@@ -16,9 +17,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        intent.extras?.get("username")
+
         if (savedInstanceState != null){
-            counter = savedInstanceState.getLong(COUNTER_KEY, 0)
+            updateCounter(savedInstanceState.getLong(COUNTER_KEY, 0))
+        } else if (getStore().contains(COUNTER_KEY)){
+            updateCounter(getStore().getLong(COUNTER_KEY, 0))
         }
+
         myButton.setOnClickListener {
                 counter++
                 CounterText.setText(""+counter);
@@ -32,6 +38,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         super.onSaveInstanceState(outState)
+    }
+
+    private fun updateCounter(count: Long){
+        counter = count
+        CounterText.text = counter.toString()
     }
 
     override fun onPause(){
