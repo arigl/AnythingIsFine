@@ -8,23 +8,41 @@ import android.view.View
 import com.example.anythingisfine.util.rotate90
 import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
+import androidx.core.app.NotificationCompat.getExtras
+
+
+
+
 
 class MainActivity : AppCompatActivity() {
     private var counter: Long =  0
     fun getStore() = getPreferences(Context.MODE_PRIVATE)
+    val map = HashMap<String, Long>()
+    var USERNAME_COUNTER_KEY: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        intent.extras?.get("username")
+        val username = intent.extras?.get("username").toString().trim()
+        USERNAME_COUNTER_KEY = username
 
         if (savedInstanceState != null){
-            updateCounter(savedInstanceState.getLong(COUNTER_KEY, 0))
-        } else if (getStore().contains(COUNTER_KEY)){
-            updateCounter(getStore().getLong(COUNTER_KEY, 0))
+            updateCounter(savedInstanceState.getLong(USERNAME_COUNTER_KEY, 0))
+        } else if (getStore().contains(USERNAME_COUNTER_KEY)){
+            updateCounter(getStore().getLong(USERNAME_COUNTER_KEY, 0))
         }
 
+        /*
+        if (map[username] != null){
+            getUserValue(username!!)
+        }
+        else{
+            storeUsername(username!!)
+        }
+
+        //counter = map["Alex"]
+        */
         myButton.setOnClickListener {
                 counter++
                 CounterText.setText(""+counter);
@@ -34,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         outState?.run{
-            putLong(COUNTER_KEY, counter)
+            putLong(USERNAME_COUNTER_KEY, counter)
         }
 
         super.onSaveInstanceState(outState)
@@ -47,9 +65,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause(){
         super.onPause()
-        getStore().edit().putLong(COUNTER_KEY, counter).apply()
+        getStore().edit().putLong(USERNAME_COUNTER_KEY, counter).apply()
     }
     companion object {
-        private const val COUNTER_KEY = "Counter"
+        private const val USERNAME_COUNTER_KEY = "Counter"
     }
 }

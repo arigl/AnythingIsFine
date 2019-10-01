@@ -1,44 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
-
-    <Button
-            android:id="@+id/myButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Click me"
-            app:layout_constraintBottom_toTopOf="@id/myImage"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="spread" android:paddingTop="0dp"
-            app:layout_constraintHorizontal_bias="0.498"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingLeft="16dp"
+              android:paddingRight="16dp"
+              android:orientation="vertical" >
 
     <ImageView
             android:id="@+id/myImage"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:scaleType="fitCenter"
-            android:src="@mipmap/ic_launcher_round"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/myButton"
-            tools:visibility="visible"/>
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/whale" android:paddingTop="50dp"/>
+
+
+
+    <Button
+            android:id="@+id/myButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Click me" android:paddingTop="20dp"/>
+
 
     <TextView
-        android:id="@+id/CounterText"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/myImage"
-        android:text="COUNTER"
-        android:scaleType="fitCenter"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        />
+            android:id="@+id/CounterText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="COUNTER"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="10dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
