@@ -9,6 +9,10 @@ import com.example.anythingisfine.util.rotate90
 import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
 import androidx.core.app.NotificationCompat.getExtras
+import android.R.layout
+import android.widget.ImageButton
+
+
 
 
 
@@ -33,6 +37,7 @@ class MainActivity : AppCompatActivity() {
             updateCounter(getStore().getLong(USERNAME_COUNTER_KEY, 0))
         }
 
+
         /*
         if (map[username] != null){
             getUserValue(username!!)
@@ -48,6 +53,11 @@ class MainActivity : AppCompatActivity() {
                 CounterText.setText(""+counter);
                 myImage.rotate90()
         }
+        restartButton.setOnClickListener{
+            counter = 0;
+            CounterText.setText(""+counter);
+        }
+
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

@@ -14,15 +14,13 @@
             android:scaleType="fitCenter"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/whale" android:paddingTop="50dp"/>
-
-
-
     <Button
             android:id="@+id/myButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
             android:layout_gravity="center_horizontal"
-            android:text="Click me" android:paddingTop="20dp"/>
+            android:text="Click me" android:paddingTop="0dp"
+    />
 
 
     <TextView
@@ -33,5 +31,13 @@
             android:scaleType="fitCenter"
             android:layout_gravity="center_horizontal"
             android:paddingTop="10dp"/>
+
+    <Button
+            android:id="@+id/restartButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Restart" android:layout_marginTop="150dp">
+    </Button>
+
 
 </LinearLayout>
