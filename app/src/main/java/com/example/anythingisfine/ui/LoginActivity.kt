@@ -1,18 +1,17 @@
-package com.example.anythingisfine
+package com.example.anythingisfine.ui
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity
 import android.text.TextWatcher
 import android.text.Editable
 import android.content.Intent
-import kotlinx.android.synthetic.main.activity_login.*
+import com.example.anythingisfine.R
 import kotlinx.android.synthetic.main.content_login.*
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.content_login)
 
         loginUsernameField.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int){
