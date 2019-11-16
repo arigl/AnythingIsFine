@@ -39,5 +39,13 @@
             android:text="Restart" android:layout_marginTop="150dp">
     </Button>
 
+    <ImageView
+            android:id="@+id/gifImage"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/whale" android:paddingTop="50dp"/>
+
 
 </LinearLayout>
